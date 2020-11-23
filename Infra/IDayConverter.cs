@@ -2,6 +2,6 @@ namespace Infra
 {
     public interface IDayConverter
     {
-        int ConvertToDays(string source);
+        int ConvertToDays(string description);
     }
 }
