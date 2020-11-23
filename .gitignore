@@ -1,9 +1,11 @@
-App/bin
-App/obj
-Domain/bin
-Domain/obj
-Infra/bin
-Infra/obj
-Test/bin
-Test/obj
-target
+# .NET Core build folders
+bin/
+obj/
+
+### vscode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
