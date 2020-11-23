@@ -1,0 +1,9 @@
+App/bin
+App/obj
+Domain/bin
+Domain/obj
+Infra/bin
+Infra/obj
+Test/bin
+Test/obj
+target
