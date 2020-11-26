@@ -59,7 +59,9 @@ MGLT -> 80
 Autonomy: 7 * 24 * 80 = 13440
 
 Stops required: Distance / Autonomy
+
 Stops required: 1000000 / 13440 
+
 Stops required: 74 (we will use only integer part of number).
 
 
@@ -102,7 +104,9 @@ MGLT -> 60
 Autonomy: 730 * 24 * 60 = 1051200
 
 Stops required: Distance / Autonomy
+
 Stops required: 1000000 / 1051200 
+
 Stops required: 0 (we will use only integer part of number).
 
 
@@ -143,9 +147,10 @@ Consumables -> 500 days
 MGLT -> Unknow, so the application considers 0
 
 Autonomy: 7 * 24 * 0 = 0
-If AUTONOMY equals 0, the application will not divide by zero ;)
-So the stops required must be unknow.
 
+If AUTONOMY equals 0, the application will not divide by zero ;)
+
+So the stops required must be unknow.
 
 
 
