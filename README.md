@@ -1,6 +1,8 @@
 StarShips - A simple application capable of organizing your trip... stellar trip :)
 
+------------------------------------------------------------------------------
 Documentantion
+------------------------------------------------------------------------------
 
 
 This application created using .NET Core, with the objective of calculating the number of necessary stops in a trip through space.
@@ -24,6 +26,7 @@ Stops required - greater than 0
 ------------------------------------------------------------------------------
 
 For example: Distance reported by the traveler -> 1000000 
+
 {
     "name": "Y-wing",
     "model": "BTL Y-wing",
@@ -145,7 +148,11 @@ So the stops required must be unknow.
 
 
 
+
+
+------------------------------------------------------------------------------
 Usage
+------------------------------------------------------------------------------
 
 it's easy to use, just download the code, navigate to the App folder and execute: dotnet run.
 
