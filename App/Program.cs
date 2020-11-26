@@ -53,7 +53,7 @@ namespace App
         {
             foreach (var starShipItemDTO in starShipDTO.StarShipItemDTO)
             {
-                string stopsRequired = (starShipItemDTO.StopsRequired > 0) 
+                string stopsRequired = (starShipItemDTO.StopsRequired > -1) 
                     ? starShipItemDTO.StopsRequired.ToString()
                     : "unknow";
 

@@ -30,19 +30,19 @@ namespace Test.App
         }
 
         [Fact]
-        public void ShouldReturn0StopsWhenTheDistanceEqual100HundredThousandAndMGLTEqual0AndConsumablesEqual7Days()
+        public void ShouldReturnNegative1StopsWhenTheDistanceEqual100HundredThousandAndMGLTEqual0AndConsumablesEqual7Days()
         {
             var calculationStops = new CalculationStops();
             int stopsRequired = calculationStops.CalculateStops(100000, 0, 7);
-            Assert.Equal(0, stopsRequired);
+            Assert.Equal(-1, stopsRequired);
         }
 
         [Fact]
-        public void ShouldReturn0StopsWhenTheDistanceEqual100HundredThousandAndMGLTEqual150AndConsumablesEqual0Days()
+        public void ShouldReturnNegative1StopsWhenTheDistanceEqual100HundredThousandAndMGLTEqual150AndConsumablesEqual0Days()
         {
             var calculationStops = new CalculationStops();
             int stopsRequired = calculationStops.CalculateStops(100000, 150, 0);
-            Assert.Equal(0, stopsRequired);
+            Assert.Equal(-1, stopsRequired);
         }        
     }
 }

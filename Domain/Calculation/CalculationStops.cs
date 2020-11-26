@@ -7,7 +7,7 @@ namespace Domain.Calculation
         public int CalculateStops(int distance, int mglt, int daysCount)
         {
             int autonomy = (daysCount * Hour * mglt);
-            return (autonomy > 0) ? (distance / autonomy) : 0;
+            return (autonomy > 0) ? (distance / autonomy) : -1;
         }
     }
 }

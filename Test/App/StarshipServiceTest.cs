@@ -7,7 +7,6 @@ using App.StarShips;
 using Newtonsoft.Json;
 using Infra.Exceptions;
 using System.Reflection;
-using System.Collections.Generic;
 
 namespace Test.App
 {
@@ -107,10 +106,10 @@ namespace Test.App
         }        
 
         [Fact]
-        public void ShouldReturnRepublicAttackCruiserTransportAnd0StopsWhenTheDistanceEqual150ThousandAndMgltUnknowWhenPageEquals3()
+        public void ShouldReturnRepublicAttackCruiserTransportAndNegative1StopsWhenTheDistanceEqual150ThousandAndMgltUnknowWhenPageEquals3()
         {
             string url = GetUrl("page3.json");
-            StarShipDTO starShipDTOExpected = CreateStarShip("page4.json", "Republic attack cruiser", 0);
+            StarShipDTO starShipDTOExpected = CreateStarShip("page4.json", "Republic attack cruiser", -1);
             StarShipItemDTO starShipItemDTOExpected = starShipDTOExpected.StarShipItemDTO.First();
 
             StarShipDTO starShipDTO = this.starShipService.GetStopsRequired("150000", url);
@@ -124,10 +123,10 @@ namespace Test.App
         }
 
         [Fact]
-        public void ShouldReturnNabooStarSkiffTransportAnd0StopsWhenTheDistanceEqual150ThousandAndConsumablesUnknowWhenPageEquals4()
+        public void ShouldReturnNabooStarSkiffTransportAndNegative1StopsWhenTheDistanceEqual150ThousandAndConsumablesUnknowWhenPageEquals4()
         {
             string url = GetUrl("page4.json");
-            StarShipDTO starShipDTOExpected = CreateStarShip(null, "Naboo star skiff", 0);
+            StarShipDTO starShipDTOExpected = CreateStarShip(null, "Naboo star skiff", -1);
             StarShipItemDTO starShipItemDTOExpected = starShipDTOExpected.StarShipItemDTO.First();
 
             StarShipDTO starShipDTO = this.starShipService.GetStopsRequired("150000", url);
