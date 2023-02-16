@@ -1,167 +1,54 @@
-StarShips - A simple application capable of organizing your trip... stellar trip :)
+# Price Basket Challenge
 
-------------------------------------------------------------------------------
-Documentantion
-------------------------------------------------------------------------------
+This project aims to calculate special offers for a basket of products.
 
+## 🔨 Functionality
 
-This application created using .NET Core, with the objective of calculating the number of necessary stops in a trip through space.
+To apply discounts for a basket of goods, you must know that we have a list of products, composed by:
 
-The Star Wars API was used to compose this application, which provides us with the list of starships and their important information for the calculation. See more https://swapi.dev/.
+Soup – 65p per tin
+Bread – 80p per loaf
+Milk – £1.30 per bottle
+Apples – £1.00 per bag
 
+And special offers:
 
-All ships have two pieces of information to perform the calculation, such as: 
+Apples have 10% off their normal price this week
+Buy 2 tins of soup and get a loaf of bread for half price
 
-*Consumables -> maximum length of time that this starship can provide consumables for its entire crew without having to resupply.
-Consumables are informed by periods, such as 10 days, 1 week, 3 months or 5 years, making it necessary that we convert to days.
+## ✔️ Techniques and technologies used
 
-*MGLT -> The Maximum number of Megalights this starship can travel in a standard hour. A MGLT is a standard unit of distance and has never been defined before within the Star Wars universe.
+- Console application 
+- Visual Studio 2019
+- Net Core 5.0
+- xUnit: for unit tests and integration tests.
 
-The formula for stops requires calculation, for each ship is -> DISTANCE TO TRIP / AUTONOMY
-Where AUTONOMY is result of -> (CONSUMABLES IN DAYS * 24 HOUR * MGLT).
+## 📁 Access to the project
 
+**Unzip the file called Fernando.Ribeiro.BJSS Assignment.zip**
 
-------------------------------------------------------------------------------
-Stops required - greater than 0
-------------------------------------------------------------------------------
+## 🛠️ Open and run the project
 
-For example: Distance reported by the traveler -> 1000000 
+Using VS 2019, open the solution called PriceBasket.sln and then execute the App.csproj
 
-{
-    "name": "Y-wing",
-    "model": "BTL Y-wing",
-    "manufacturer": "Koensayr Manufacturing",
-    "cost_in_credits": "134999",
-    "length": "14",
-    "max_atmosphering_speed": "1000km",
-    "crew": "2",
-    "passengers": "0",
-    "cargo_capacity": "110",
-    "consumables": "1 week",
-    "hyperdrive_rating": "1.0",
-    "MGLT": "80",
-    "starship_class": "assault starfighter",
-    "pilots": [],
-    "films": [
-    "http://swapi.dev/api/films/1/",
-    "http://swapi.dev/api/films/2/",
-    "http://swapi.dev/api/films/3/"
-    ],
-    "created": "2014-12-12T11:00:39.817000Z",
-    "edited": "2014-12-20T21:23:49.883000Z",
-    "url": "http://swapi.dev/api/starships/11/"
-} 
+To execute unit tests, you can use the Test.csproj
 
+## ⚙ Demo
 
-Consumables -> 1 week -> 7 days
-MGLT -> 80
+Start the App project and you can see this screen:
 
-Autonomy: 7 * 24 * 80 = 13440
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/f965b2f3482ae7fb46253cd80a3703c5c7d6d1ea4577872c.png)
 
-Stops required: Distance / Autonomy
+When the system asks you to add a basket, use the command PriceBasket, followed by items that you want: (press enter after finishing your basket of items)
 
-Stops required: 1000000 / 13440 
+*To create a list with repeated products, just repeat the name of the product as many times as you deem necessary.
 
-Stops required: 74 (we will use only integer part of number).
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/58c98f7771b34e5b24d5d8236c02c4457295f01eb2cfd934.png)
 
+You will see the results:
 
-------------------------------------------------------------------------------
-Stops required - 0
-------------------------------------------------------------------------------
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/97a91268583b4aaf4ad22b5e651d47286367b6b0d6e6cb89.png)
 
-Another example where the StarShip don't needs make stop:
+## 🖱 Author
 
-Distance reported by the traveler -> 1000000
-
-{
-    "name": "Star Destroyer",
-    "model": "Imperial I-class Star Destroyer",
-    "manufacturer": "Kuat Drive Yards",
-    "cost_in_credits": "150000000",
-    "length": "1,600",
-    "max_atmosphering_speed": "975",
-    "crew": "47,060",
-    "passengers": "n/a",
-    "cargo_capacity": "36000000",
-    "consumables": "2 years",
-    "hyperdrive_rating": "2.0",
-    "MGLT": "60",
-    "starship_class": "Star Destroyer",
-    "pilots": [],
-    "films": [
-        "http://swapi.dev/api/films/1/",
-        "http://swapi.dev/api/films/2/",
-        "http://swapi.dev/api/films/3/"
-    ],
-    "created": "2014-12-10T15:08:19.848000Z",
-    "edited": "2014-12-20T21:23:49.870000Z",
-    "url": "http://swapi.dev/api/starships/3/"
-}
-
-Consumables -> 2 years -> 730 days
-MGLT -> 60
-
-Autonomy: 730 * 24 * 60 = 1051200
-
-Stops required: Distance / Autonomy
-
-Stops required: 1000000 / 1051200 
-
-Stops required: 0 (we will use only integer part of number).
-
-
-------------------------------------------------------------------------------
-Stops required - Unknow
-------------------------------------------------------------------------------
-
-Some starships have no all information necessary to calculation, for example:
-
-Distance reported by the traveler -> 1000000
-
-{
-    "name": "Droid control ship",
-    "model": "Lucrehulk-class Droid Control Ship",
-    "manufacturer": "Hoersch-Kessel Drive, Inc.",
-    "cost_in_credits": "unknown",
-    "length": "3170",
-    "max_atmosphering_speed": "n/a",
-    "crew": "175",
-    "passengers": "139000",
-    "cargo_capacity": "4000000000",
-    "consumables": "500 days",
-    "hyperdrive_rating": "2.0",
-    "MGLT": "unknown",
-    "starship_class": "Droid control ship",
-    "pilots": [],
-    "films": [
-        "http://swapi.dev/api/films/4/",
-        "http://swapi.dev/api/films/5/",
-        "http://swapi.dev/api/films/6/"
-    ],
-    "created": "2014-12-19T17:04:06.323000Z",
-    "edited": "2014-12-20T21:23:49.915000Z",
-    "url": "http://swapi.dev/api/starships/32/"
-}
-
-Consumables -> 500 days
-MGLT -> Unknow, so the application considers 0
-
-Autonomy: 7 * 24 * 0 = 0
-
-If AUTONOMY equals 0, the application will not divide by zero ;)
-
-So the stops required must be unknow.
-
-
-
-
-------------------------------------------------------------------------------
-Usage
-------------------------------------------------------------------------------
-
-it's easy to use, just download the code, navigate to the App folder and execute: dotnet run.
-
-Have fun and imagine your next trip in the Star Wars universe.
-
-
-
+Fernando Ribeiro
